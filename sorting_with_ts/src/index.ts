@@ -13,13 +13,9 @@ linkedList.add(94);
 linkedList.add(41);
 linkedList.add(-34);
 
-const numSorter = new Sorter(numbers);
-const charSorter = new Sorter(characters);
-const llSorter = new Sorter(linkedList);
-
-numSorter.sort();
-charSorter.sort();
-llSorter.sort();
+numbers.sort();
+characters.sort();
+linkedList.sort();
 
 console.log(numbers.data);
 console.log(characters.data);
