@@ -1,5 +1,9 @@
-class NumbersCollection {
-  constructor(public data: number[]) {}
+import Sorter from './Sorter';
+
+class NumbersCollection extends Sorter {
+  constructor(public data: number[]) {
+    super();
+  }
 
   get length(): number {
     return this.data.length;
@@ -9,8 +13,8 @@ class NumbersCollection {
     return this.data[leftIndex] > this.data[rightIndex];
   }
 
-  swap(leftIndex: number, rightIndex: number) {
-    [ this.data[leftIndex], this.data[rightIndex] ] = [ this.data[rightIndex], this.data[leftIndex] ];
+  swap(l: number, r: number) {
+    [ this.data[l], this.data[r] ] = [ this.data[r], this.data[l] ];
   }
 
 }

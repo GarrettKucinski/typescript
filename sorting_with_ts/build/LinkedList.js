@@ -1,5 +1,16 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
+var Sorter_1 = require("./Sorter");
 var Node = (function () {
     function Node(data) {
         this.data = data;
@@ -7,9 +18,12 @@ var Node = (function () {
     }
     return Node;
 }());
-var LinkedList = (function () {
+var LinkedList = (function (_super) {
+    __extends(LinkedList, _super);
     function LinkedList() {
-        this.head = null;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.head = null;
+        return _this;
     }
     Object.defineProperty(LinkedList.prototype, "length", {
         get: function () {
@@ -54,15 +68,15 @@ var LinkedList = (function () {
         }
         throw new Error('Index out of bounds');
     };
-    LinkedList.prototype.compare = function (leftIndex, rightIndex) {
+    LinkedList.prototype.compare = function (l, r) {
         if (!this.head) {
             throw new Error('List is empty');
         }
-        return this.at(leftIndex).data > this.at(rightIndex).data;
+        return this.at(l).data > this.at(r).data;
     };
-    LinkedList.prototype.swap = function (leftIndex, rightIndex) {
-        var left = this.at(leftIndex);
-        var right = this.at(rightIndex);
+    LinkedList.prototype.swap = function (l, r) {
+        var left = this.at(l);
+        var right = this.at(r);
         _a = [right.data, left.data], left.data = _a[0], right.data = _a[1];
         var _a;
     };
@@ -77,5 +91,5 @@ var LinkedList = (function () {
         }
     };
     return LinkedList;
-}());
+}(Sorter_1.default));
 exports.default = LinkedList;

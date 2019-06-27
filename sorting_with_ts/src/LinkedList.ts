@@ -1,10 +1,12 @@
+import Sorter from './Sorter';
+
 class Node {
   next: Node | null = null
 
   constructor(public data: number) {}
 }
 
-class LinkedList {
+class LinkedList extends Sorter {
   head: Node | null = null;
 
   get length(): number {
@@ -59,17 +61,17 @@ class LinkedList {
     throw new Error('Index out of bounds');
   }
 
-  compare(leftIndex: number, rightIndex: number): boolean {
+  compare(l: number, r: number): boolean {
     if (!this.head) {
       throw new Error('List is empty');
     }
 
-    return this.at(leftIndex).data > this.at(rightIndex).data;
+    return this.at(l).data > this.at(r).data;
   }
 
-  swap(leftIndex: number, rightIndex: number) {
-    let left = this.at(leftIndex);
-    let right = this.at(rightIndex);
+  swap(l: number, r: number) {
+    let left = this.at(l);
+    let right = this.at(r);
 
     [left.data, right.data] = [right.data, left.data];
   }

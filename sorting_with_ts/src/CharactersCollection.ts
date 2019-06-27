@@ -1,17 +1,23 @@
-class CharactersCollection {
-  constructor(public data: string) {}
+import Sorter from './Sorter';
+
+class CharactersCollection extends Sorter {
+  constructor(public data: string) {
+    super();
+  }
 
   get length() {
     return this.data.length;
   }
 
   compare(leftIndex: number, rightIndex: number): boolean {
-    return this.data[leftIndex].toLocaleLowerCase() > this.data[rightIndex].toLocaleLowerCase();
+    return this.data[leftIndex].toLocaleLowerCase() >
+      this.data[rightIndex].toLocaleLowerCase();
   }
 
-  swap(leftIndex: number, rightIndex: number): void {
+  swap(l: number, r: number): void {
     const chars = this.data.split('');
-    [chars[leftIndex], chars[rightIndex]] = [chars[rightIndex], chars[leftIndex]];
+
+    [ chars[l], chars[r] ] = [ chars[r], chars[l] ];
 
     this.data = chars.join('');
   }
