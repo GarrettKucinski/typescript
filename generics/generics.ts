@@ -39,4 +39,4 @@ const arrayOfStrings = [
 ];
 
 logArrayOfItems<string>(arrayOfStrings);
-printableArrayOfItems<House>([new House('2128 N. Heritage St.')]);
+printableArrayOfItems<House>([new House('2128 N. Heritage St.'), new House('')]);
